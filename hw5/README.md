@@ -1,34 +1,39 @@
-# dez-homework-4
-Homework 4: Analytics Engineering for Data Engineering Zoomcamp 2026
+# dez-homework-5
+Homework 5: Data Platformsg for Data Engineering Zoomcamp 2026
 
 ## Q1
-dbt run --select int_trips_unioned builds which models?
+Bruin Pipeline StructureIn a Bruin project, what are the required files/directories?
 
-int_trips_unioned only
+bruin.yml and pipeline.yml (assets can be anywhere)
 
 
 ## Q2
-New value 6 appears in payment_type. What happens on dbt test?
+Materialization Strategies You're building a pipeline that processes NYC taxi data organized by month based on pickup_datetime. Which incremental strategy is best for processing a specific interval period by deleting and inserting data for that time period?
 
-dbt passes with warning
+time_interval - incremental based on a time column
 
 ## Q3
-Count of records in fct_monthly_zone_revenue?
+Pipeline VariablesYou have a variable defined in pipeline.yml:variables: taxi_types: type: array items: type: string default: ["yellow", "green"]How do you override this when running the pipeline to only process yellow taxis?   
 
-12,184
+bruin run --var 'taxi_types=["yellow"]'
 
 ## Q4
-Zone with highest revenue for Green taxis in 2020?
+Running with DependenciesYou've modified the ingestion/trips.py asset and want to run it plus all downstream assets. Which command should you use?
 
-East Harlem North
+bruin run ingestion/trips.py --downstream
 
 ## Q5
-Total trips for Green taxis in October 2019?
+Quality Checks. You want to ensure the pickup_datetime column in your trips table never has NULL values. Which quality check should you add to your asset definition?
 
-384,624
+name: not_null
 
 ## Q6
-Count of records in stg_fhv_tripdata (filter dispatching_base_num IS NULL)?
+Lineage and DependenciesAfter building your pipeline, you want to visualize the dependency graph between assets. Which Bruin command should you use?
 
-43,244,693
+bruin lineage
+
+## Q7
+First-Time RunYou're running a Bruin pipeline for the first time on a new DuckDB database. What flag should you use to ensure tables are created from scratch?
+
+--full-refresh
 
