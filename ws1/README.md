@@ -1,39 +1,19 @@
-# dez-homework-5
-Homework 5: Data Platformsg for Data Engineering Zoomcamp 2026
+# dez-workshop-1
+workshop 1: DIngestion with dlt for Data Engineering Zoomcamp 2026
 
 ## Q1
-Bruin Pipeline StructureIn a Bruin project, what are the required files/directories?
+What is the start date and end date of the dataset?
 
-bruin.yml and pipeline.yml (assets can be anywhere)
+2009-01-01 to 2009-01-31
 
 
 ## Q2
-Materialization Strategies You're building a pipeline that processes NYC taxi data organized by month based on pickup_datetime. Which incremental strategy is best for processing a specific interval period by deleting and inserting data for that time period?
+What proportion of trips are paid with credit card?
 
-time_interval - incremental based on a time column
+36.66%
 
 ## Q3
-Pipeline VariablesYou have a variable defined in pipeline.yml:variables: taxi_types: type: array items: type: string default: ["yellow", "green"]How do you override this when running the pipeline to only process yellow taxis?   
+What is the total amount of money generated in tips?
 
-bruin run --var 'taxi_types=["yellow"]'
-
-## Q4
-Running with DependenciesYou've modified the ingestion/trips.py asset and want to run it plus all downstream assets. Which command should you use?
-
-bruin run ingestion/trips.py --downstream
-
-## Q5
-Quality Checks. You want to ensure the pickup_datetime column in your trips table never has NULL values. Which quality check should you add to your asset definition?
-
-name: not_null
-
-## Q6
-Lineage and DependenciesAfter building your pipeline, you want to visualize the dependency graph between assets. Which Bruin command should you use?
-
-bruin lineage
-
-## Q7
-First-Time RunYou're running a Bruin pipeline for the first time on a new DuckDB database. What flag should you use to ensure tables are created from scratch?
-
---full-refresh
+$8,063.41
 
