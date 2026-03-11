@@ -1,39 +1,34 @@
-# dez-homework-5
-Homework 5: Data Platformsg for Data Engineering Zoomcamp 2026
+# dez-homework-6
+Homework 6: Batch for Data Engineering Zoomcamp 2026
 
 ## Q1
-Bruin Pipeline StructureIn a Bruin project, what are the required files/directories?
+Install Spark and PySpark 
 
-bruin.yml and pipeline.yml (assets can be anywhere)
+spark.version output: 4.1.1
 
 
 ## Q2
-Materialization Strategies You're building a pipeline that processes NYC taxi data organized by month based on pickup_datetime. Which incremental strategy is best for processing a specific interval period by deleting and inserting data for that time period?
+Yellow November 2025 
 
-time_interval - incremental based on a time column
+
+25MB
 
 ## Q3
-Pipeline VariablesYou have a variable defined in pipeline.yml:variables: taxi_types: type: array items: type: string default: ["yellow", "green"]How do you override this when running the pipeline to only process yellow taxis?   
+Count records
 
-bruin run --var 'taxi_types=["yellow"]'
+162,604
 
 ## Q4
-Running with DependenciesYou've modified the ingestion/trips.py asset and want to run it plus all downstream assets. Which command should you use?
+Longest trip
 
-bruin run ingestion/trips.py --downstream
+90.6
 
 ## Q5
-Quality Checks. You want to ensure the pickup_datetime column in your trips table never has NULL values. Which quality check should you add to your asset definition?
+User Interface
 
-name: not_null
+4040
 
 ## Q6
-Lineage and DependenciesAfter building your pipeline, you want to visualize the dependency graph between assets. Which Bruin command should you use?
+Least frequent pickup location zone
 
-bruin lineage
-
-## Q7
-First-Time RunYou're running a Bruin pipeline for the first time on a new DuckDB database. What flag should you use to ensure tables are created from scratch?
-
---full-refresh
-
+Governor's Island/Ellis Island/Liberty Island
